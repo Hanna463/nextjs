@@ -1,61 +1,85 @@
 <!DOCTYPE html>
-
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <title>JS-DOM</title>
-
+    <title>Calculator</title>
+    <script src="js_index.js"></script>
 </head>
-
 <body>
+ <style>
+  body {
+      user-select:none;
+  }
+  .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      max-width:300px;
+      background-color: yellow;
+      border: solid 1px;
+      height: 220px;
+  }
+  .item {
+      display:flex;
+      justify-content: center;
+      align-items:center;
+      cursor: pointer;
+      border: solid 1px;
+  }
+  form {
+     max-width:300px;
+  }
+  input {
+      width:100%;
+      height: 30px;
+      font-size: none;
+      outline:none;
+      text-align: right;
+  }
+  .input {
+      grid-column:1/5;
+      padding: 0;
+  }
+  .clean {
+      grid-column: 1/3;
+  }
+  .back {
+      grid-column: 3/-1;
+  }
+  .equal {
+      grid-column: 4;
+      grid-row:6/8;
+      background-color: grey;
+  }
+  .zero {
+      grid-column: 1/3;
+  }
 
+ </style>
 
-
-    <div class="clock"></div>
-
-
-
-     <section>
-
-        <img src="img/jedi.jpg" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
-
-        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
-
-      </section>
-
-
-
-
-
-    <div class="calc">
-
-        <input type="text" readonly placeholder="0" class="display">
-
-        <div class="buttons">
-
-            <button>1</button>
-
-            <button>2</button>
-
-            <button>+</button>
-
-        </div>
-
-        <button class="eq">=</button>
-
-    </div>
-
-
-
-    <script src="js/index.js"></script>
-
+  <div class="container">
+    <div class="item input"><form name="form"><input type="text" name="textview" readonly placeholder="0"></form> </div>
+    <div class="item clean" onclick="clean()">C</div>
+    <div class="item back" onclick="back()">&larr;</div>
+    <div class="item" onclick="insert('+')">+</div>
+    <div class="item" onclick="insert('-')">-</div>
+    <div class="item" onclick="insert('*')">&times;</div>
+    <div class="item" onclick="insert('/')">&divide;</div>
+    <div class="item" onclick="insert('7')">7</div>
+    <div class="item" onclick="insert('8')">8</div>
+    <div class="item" onclick="insert('9')">9</div>
+    <div class="item" onclick="insert('(')">(</div>
+    <div class="item" onclick="insert('4')">4</div>
+    <div class="item" onclick="insert('5')">5</div>
+    <div class="item" onclick="insert('6')">6</div>
+    <div class="item" onclick="insert(')')">)</div>
+    <div class="item" onclick="insert('1')">1</div>
+    <div class="item" onclick="insert('2')">2</div>
+    <div class="item" onclick="insert('3')">3</div>
+    <div class="item equal" onclick="equal()">=</div>
+    <div class="item zero" onclick="insert('0')">0</div>
+    <div class="item" onclick="insert('.')">.</div>
+  </div>
 </body>
-
 </html>
